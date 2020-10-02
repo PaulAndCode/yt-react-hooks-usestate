@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+.counter {
+  font-size: 54px;
+  padding: 54px;
+}
+button {
+  display: inline-block;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

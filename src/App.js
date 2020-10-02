@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import map from 'lodash/map';
+import startCase from 'lodash/startCase';
 import './App.css';
 
+const Input = ({label, id, handleChange, name, type}) => (
+  <>
+    <label htmlFor={id}>{label}</label>
+    <input type={type || 'text'} id={id} name={name || id} onChange={handleChange} />
+    <br />
+  </>
+);
+
 function App() {
+  const [form, setFormValue] = useState({name: '', weight: '', height: ''});
+
+  const handleChange = (e) => {
+    const {name, value} = e.target;
+    setFormValue((prevFormValues) => ({
+      ...prevFormValues,
+      [name]: value,
+    }));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+    <>
+      {map(form, (val, key) => (
+        <p key={key}>
+          {`${startCase(key)}: `}
+          {val}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      ))}
+      <Input label="Name: " id="name" handleChange={handleChange} />
+      <Input label="Weight: " id="weight" handleChange={handleChange} />
+      <Input label="Height: " id="height" handleChange={handleChange} />
+    </>
   );
 }
 
