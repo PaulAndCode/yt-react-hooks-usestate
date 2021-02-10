@@ -86,6 +86,7 @@ function App() {
     food: '',
     football: false,
     hockey: true,
+    bio: 'What do you like to do?',
     car: ''
   });
 
@@ -145,17 +146,11 @@ function App() {
       <Checkbox form={form} label="Football" id="football" handleChange={handleChange} />
       <Checkbox form={form} label="Hockey" id="hockey" handleChange={handleChange} />
       <Textarea id="bio" label="Bio" handleChange={handleChange} value={form.bio}/>
-      <Select
-        value={form.car}
-        id="car"
-        label="I drive a:"
-        handleChange={handleChange}
-        options={[
-          {label: "Please select", value: ''},
-          {label: "Audi RS6", value: 'Audi RS6'},
-          {label: "Audi RS4", value: 'Audi RS4'},
-        ]}
-      />
+      <Select value={form.car} id="car" label="I drive a: " handleChange={handleChange} options={[
+        {label: "Please select", value: ''},
+        {label: "Audi RS6", value: 'Audi RS6'},
+        {label: "Audi RS4", value: 'Audi RS4'},
+      ]}/>
     </>
   );
 }
