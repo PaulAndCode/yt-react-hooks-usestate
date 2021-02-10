@@ -17,6 +17,37 @@ const Input = ({label, id, handleChange, name, type, value}) => (
   </>
 );
 
+const Textarea = ({label, id, handleChange, name, value, rows}) => (
+  <>
+    <br />
+    <div><label htmlFor={id}>{label}</label></div>
+    <textarea
+      id={id}
+      name={name || id}
+      onChange={handleChange}
+      value={value}
+      rows={rows || 3}
+    />
+    <br />
+  </>
+);
+
+const Select = ({label, id, handleChange, name, value, options}) =>
+  (
+    <>
+      <div><label htmlFor={id}>{label}</label></div>
+      <select
+        id={id}
+        name={name || id}
+        onChange={handleChange}
+        value={value}
+      >
+        {map(options, ({label, value}) => <option value={value} key={value}>{label}</option>)}
+      </select>
+      <br/>
+    </>
+  );
+
 const Radio = ({label, id, handleChange, name, form}) => (
   <>
     <input
@@ -55,11 +86,12 @@ function App() {
     food: '',
     football: false,
     hockey: true,
+    car: ''
   });
 
   const handleChange = (e) => {
     const {name, value, type, checked} = e.target;
-    //console.log({...e.target});
+    console.log({...e.target});
     setFormValue((prevFormValues) => ({
       ...prevFormValues,
       [name]: type === 'checkbox' ? checked : value,
@@ -112,6 +144,18 @@ function App() {
       <p>I like the following: </p>
       <Checkbox form={form} label="Football" id="football" handleChange={handleChange} />
       <Checkbox form={form} label="Hockey" id="hockey" handleChange={handleChange} />
+      <Textarea id="bio" label="Bio" handleChange={handleChange} value={form.bio}/>
+      <Select
+        value={form.car}
+        id="car"
+        label="I drive a:"
+        handleChange={handleChange}
+        options={[
+          {label: "Please select", value: ''},
+          {label: "Audi RS6", value: 'Audi RS6'},
+          {label: "Audi RS4", value: 'Audi RS4'},
+        ]}
+      />
     </>
   );
 }
