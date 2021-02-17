@@ -17,18 +17,24 @@ const UseStateForm = () => {
     football: false,
     hockey: true,
     bio: 'What do you like to do?',
-    car: ''
+    car: '',
   });
 
   return (
     <form>
+      <h2>UseStateForm</h2>
       {map(formValues, (val, key) => (
         <div key={key}>
           {`${startCase(key)}: `}
           {`${val}`}
         </div>
       ))}
-      <Input label="Name: " id="name" handleChange={handleChange} value={formValues.name} />
+      <Input
+        label="Name: "
+        id="name"
+        handleChange={handleChange}
+        value={formValues.name}
+      />
       <Input
         label="Weight: "
         id="weight"
@@ -64,14 +70,30 @@ const UseStateForm = () => {
         handleChange={handleChange}
       />
       <p>I like the following: </p>
-      <Checkbox form={formValues} label="Football" id="football" handleChange={handleChange} />
-      <Checkbox form={formValues} label="Hockey" id="hockey" handleChange={handleChange} />
-      <Textarea id="bio" label="Bio" handleChange={handleChange} value={formValues.bio}/>
-      <Select value={formValues.car} id="car" label="I drive a: " handleChange={handleChange} options={[
-        {label: "Please select", value: ''},
-        {label: "Audi RS6", value: 'Audi RS6'},
-        {label: "Audi RS4", value: 'Audi RS4'},
-      ]}/>
+      <Checkbox
+        form={formValues}
+        label="Football"
+        id="football"
+        handleChange={handleChange}
+      />
+      <Checkbox
+        form={formValues}
+        label="Hockey"
+        id="hockey"
+        handleChange={handleChange}
+      />
+      <Textarea id="bio" label="Bio" handleChange={handleChange} value={formValues.bio} />
+      <Select
+        value={formValues.car}
+        id="car"
+        label="I drive a: "
+        handleChange={handleChange}
+        options={[
+          {label: 'Please select', value: ''},
+          {label: 'Audi RS6', value: 'Audi RS6'},
+          {label: 'Audi RS4', value: 'Audi RS4'},
+        ]}
+      />
     </form>
   );
 };
