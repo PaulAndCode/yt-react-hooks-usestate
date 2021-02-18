@@ -5,7 +5,7 @@ const useForm = (initialState) => {
 
   const handleChange = (e) => {
     const {name, value, type, checked} = e.target;
-    console.log({...e.target});
+    //console.log({...e.target});
     setFormValue((prevFormValues) => ({
       ...prevFormValues,
       [name]: type === 'checkbox' ? checked : value,
