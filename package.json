@@ -1,11 +1,13 @@
 {
   "name": "yt-react-hooks-usestate",
+  "homepage": "https://bearjs.github.io/yt-react-hooks-usestate",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^7.1.2",
+    "gh-pages": "^3.1.0",
     "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -19,6 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "-------------------------Linting": "-------------------------",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
