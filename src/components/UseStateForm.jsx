@@ -8,7 +8,7 @@ import Textarea from './Textarea';
 import Select from './Select';
 import useForm from '../utils/useForm';
 
-const UseStateForm = () => {
+const UseStateForm = ({handleSubmit}) => {
   const {formValues, handleChange} = useForm({
     name: '',
     weight: '',
@@ -21,7 +21,13 @@ const UseStateForm = () => {
   });
 
   return (
-    <form>
+    <form
+      onSubmit={(event) => {
+        event.preventDefault();
+
+        handleSubmit(formValues);
+      }}
+    >
       <h2>UseStateForm</h2>
       {map(formValues, (val, key) => (
         <div key={key}>
@@ -94,6 +100,7 @@ const UseStateForm = () => {
           {label: 'Audi RS4', value: 'Audi RS4'},
         ]}
       />
+      <button type="submit">Submit</button>
     </form>
   );
 };

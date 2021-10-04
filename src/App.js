@@ -1,11 +1,15 @@
 import React from 'react';
 import './App.css';
-import UseStateForm from 'src/components/UseStateForm';
+import UseStateForm from './components/UseStateForm';
 
 function App() {
   return (
     <>
-      <UseStateForm />
+      <UseStateForm
+        handleSubmit={(formValues) => {
+          console.log(formValues);
+        }}
+      />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, fireEvent, screen} from '@testing-library/react';
-import UseStateFrom from 'src/components/UseStateForm';
+import UseStateFrom from '../UseStateForm';
 
 test('Input fields', () => {
   render(<UseStateFrom />);
